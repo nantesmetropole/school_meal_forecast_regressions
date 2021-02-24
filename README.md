@@ -2,7 +2,7 @@
 
 Dans le cadre d'un appel à projet de Nantes métropole sur la réduction du gaspillage alimentaire, nous avons réalisé une modélisation de la fréquentation des cantines scolaires de la métropole. 
 
-Nantes métropole nous a mis à disposition les historiques des données de fréquentation des écoles de la métropole sur les 10 dernières années. Nous avons également récupéré d'autres sources de données en open source afin de trouver des varaibles qui pourraient avoir une influence sur la fréquentation des restaurants scolaires. 
+Nantes métropole nous a mis à disposition les historiques des données de fréquentation des écoles de la métropole sur les 10 dernières années. Nous avons également récupéré d'autres données en open source afin de trouver des varaibles qui pourraient avoir une influence sur la fréquentation des restaurants scolaires. 
 
 ## Architecture
 
