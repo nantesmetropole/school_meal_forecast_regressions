@@ -130,7 +130,7 @@ def get_output_model(X, Y, df, model, alpha):
 
 
 def log_gaspillage(X_pred):
-    """Affiche les métrique relative au gaspillage out of sample"""
+    """Affiche les métriques relatives au gaspillage out of sample"""
 
     print("gaspillage réel", X_pred.gaspillage.mean())
     print("gaspillage avec nos prédictions - upper", X_pred.gaspi_pred_upper.mean())
@@ -155,7 +155,7 @@ def log_gaspillage(X_pred):
 
 def store_results(name, model, X_pred, z_year_score_threshold, alpha):
     """Enregistre modèle, paramètres et prédictions out of sample"""
-    # Info communes aux nom des 2 fichiers
+    # Info communes au nom des 2 fichiers
     info_model = f"{name}_{z_year_score_threshold}_{1-alpha}"
     params = model.params.to_dict()
 
@@ -264,7 +264,7 @@ def main(etab, quartier, z_year_score_threshold, alpha, start_training_date, beg
 
     df = select_columns(df=df, selected_columns=columns_for_model + ["prevision"])
 
-    # Création des dummies et Selection sur le z_year_score
+    # Création des dummies et Sélection sur le z_year_score
     X = df.dropna().drop("prevision", axis=1)
     #X = create_day_with_fish_columns(X=X)
     X["poisson"] = X["poisson"] * X["effectif"]
@@ -300,7 +300,7 @@ def main(etab, quartier, z_year_score_threshold, alpha, start_training_date, beg
     # On enlève la colonne z_year_score
     X_train, Y_train = X_train.drop(["z_year_score"], axis=1), Y_train.drop(["z_year_score"], axis=1)
 
-    # Le test est toute la portion après le train jusq'à la date de fin
+    # Le test est toute la portion après le train jusqu'à la date de fin
     X, Y = X.drop(["z_year_score"], axis=1), Y.drop(["z_year_score"], axis=1)
     X_test, Y_test = X[(begin_date < X.index) & (X.index <= end_date)], Y[
         (begin_date < Y.index) & (Y.index <= end_date)]
