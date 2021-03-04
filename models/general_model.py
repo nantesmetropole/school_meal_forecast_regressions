@@ -57,7 +57,7 @@ def delete_rows_null_reel(df):
 
 
 def delete_rows_wednesday(df):
-    """Cette fonction renvoie une dataframe débarassée des observations des mercredi."""
+    """Cette fonction renvoie une dataframe débarassée des observations des mercredis."""
     return df[df["jour"] != "Mercredi"]
 
 
@@ -79,7 +79,7 @@ def create_month_columns(X):
 
 def create_day_with_fish_columns(X):
     """Cette fonction permet de créer les dummies variables * effectif : jour_avec/sans_poisson
-       Pour les lundi, mardi et jeudi."""
+       Pour les lundis, mardis et jeudis."""
 
     # On crée des dummies pour chaque jour
     X = pd.concat([pd.get_dummies(X["jour"]), X], axis=1)
@@ -89,7 +89,7 @@ def create_day_with_fish_columns(X):
         X[day + "_avec_poisson"] = X[day] * X["poisson"] * X["effectif"]
         X[day + "_sans_poisson"] = X[day] * X["poisson"].apply(lambda x: 1 - x) * X["effectif"]
 
-    # Supprimer colonnes non uilisés
+    # Supprimer colonnes non utilisées
     for col in ["jour", "Vendredi", "Lundi", "Mardi", "Jeudi", "poisson"]:
         X.drop(col, axis=1, inplace=True)
 
@@ -97,13 +97,13 @@ def create_day_with_fish_columns(X):
 
 
 def create_repas_noel_column(X):
-    """Crée la variable pour le repas de noël"""
+    """Crée la variable pour le repas de Noël"""
     X["repas_noel"] = X["repas_noel"] * X["effectif"]
     return X
 
 
 def fit_ols(Y, X):
-    """Fit OLS model to both Y and X."""
+    """Fit OLS model to both Y and X"""
     model = sm.OLS(Y, X)
     model = model.fit()
     return model
