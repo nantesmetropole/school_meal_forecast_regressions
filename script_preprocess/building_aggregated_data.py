@@ -201,7 +201,6 @@ if __name__ == "__main__":
         df.loc[df[df["date"] == i].index, "poisson"] = 1
 
     # traitement particulier paella de la mer, filet
-
     l_index = ['2011-01-10', '2012-01-09', '2011-01-07', "2012-01-06"]
     index = [datetime.datetime.strptime(x, '%Y-%m-%d') for x in l_index]
 
